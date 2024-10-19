@@ -16,6 +16,15 @@ def clean_and_split_text(text):
     words = re.findall(r'\b\w+\b', text)
     return words
 
+def write_word_count_report(words):
+    word_count = Counter(words)
+
+    report_file = os.path.join('result', 'text2_words.txt')
+    with open(report_file, 'w', encoding='utf-8') as f:
+        for word, count in word_count.most_common():
+            f.write(f"{word}: {count}\n")
+
+
 
 
 
